@@ -256,8 +256,10 @@ bool SecurityOrigin::taintsCanvas(const KURL& url) const
     return true;
 }
 
+bool shouldBlock(const KURL& url, int type);
 bool SecurityOrigin::canLoad(const KURL& url, const String& referrer, Document* document)
 {
+    if (shouldBlock(url, -1)) { return false; }
     if (!shouldTreatURLAsLocal(url.string()))
         return true;
 

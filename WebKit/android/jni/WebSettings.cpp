@@ -54,6 +54,10 @@
 #include <JNIHelp.h>
 #include <utils/misc.h>
 
+namespace WebCore {
+extern bool ad_block_enabled;
+}
+
 namespace android {
 
 static const int permissionFlags660 = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP;
@@ -306,6 +310,13 @@ public:
         s->setDefaultFixedFontSize(size);
 
         jboolean flag = env->GetBooleanField(obj, gFieldIds->mLoadsImagesAutomatically);
+        /*
+         * HACK: "Load Images" now means "Block Ads", since changing the WebSettings
+         * object's signature would break framework binary compatibility.  Besides,
+         * who blocks all images?
+         */
+        WebCore::ad_block_enabled = flag;
+        flag = true;
         s->setLoadsImagesAutomatically(flag);
         if (flag)
             docLoader->setAutoLoadImages(true);
