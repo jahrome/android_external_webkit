@@ -275,6 +275,7 @@ LOCAL_SRC_FILES := $(LOCAL_SRC_FILES) \
 	html/canvas/CanvasRenderingContext2D.cpp \
 	html/canvas/CanvasStyle.cpp \
 	\
+	loader/AdBlock.cpp \
 	loader/Cache.cpp \
 	loader/CachedCSSStyleSheet.cpp \
 	loader/CachedFont.cpp \
