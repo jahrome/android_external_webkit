@@ -41,7 +41,7 @@ namespace WebCore {
 #define DOCUMENT_TYPE 9
 #define CACHE_SIZE 1009
 #define SHORTCUT_SIZE 8
-#define FILTER_PATH "/sdcard/block.txt"
+#define FILTER_PATH "/data/local/etc/block.txt"
 
 
 class Pattern {
